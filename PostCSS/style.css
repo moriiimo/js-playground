@@ -1,3 +1,7 @@
 body {
     background: yellow;
 }
+.rectangle {
+    size:400px 200px
+}
+

@@ -85,7 +85,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n    background: yellow;\n}\n", ""]);
+	exports.push([module.id, "body {\n    background: yellow;\n}\n.rectangle {\n    width: 400px;\n    height: 200px\n}\n\n", ""]);
 
 	// exports
 

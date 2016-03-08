@@ -1,3 +1,10 @@
+var autoprefixer = require('autoprefixer');
+var precss       = require('precss');
+var postcsssize  = require('postcss-size')
+//var postcss = require("postcss")
+//var reporter = require("postcss-reporter")
+//var stylelint = require("stylelint")
+
 module.exports = {
     entry: "./entry.js",
     output: {
@@ -10,6 +17,6 @@ module.exports = {
         ]
     },
     postcss: function () {
-        return [require('autoprefixer'), require('precss')];
+        return [autoprefixer, precss, postcsssize];
     }
 };
