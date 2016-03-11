@@ -18,9 +18,11 @@
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.7.2",
     "electron-connect": "^0.3.7",
+    "electron-json-storage": "^2.0.0",
     "es6-loader": "^0.2.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
+    "request": "^2.69.0",
     "webpack": "^1.12.14"
   }
 }
