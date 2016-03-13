@@ -61,7 +61,9 @@ ipc.on('async-cache-save-request', function (event, filename, body) {
   fs.readFile(cachePath, (err, data) => {
     if (err) {
       fs.writeFile(cachePath, body, 'binary', (err) => {
-        if (err) throw err;
+        if (err) {
+          event.sender.send('asynchronous-cache-request-reply', '');
+        }
         console.log('It\'s saved!');
         event.sender.send('asynchronous-cache-request-reply', cachePath);
       });

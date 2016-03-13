@@ -8,7 +8,8 @@ class Foo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgSrc: __dirname + '../../../noimage.png'
+      imgSrc: __dirname + '../../../noimage.png',
+      failureCount: 0
 
     };
     this.handleClick = this.handleClick.bind(this);
@@ -16,10 +17,14 @@ class Foo extends React.Component {
     ipc.on('asynchronous-cache-request-reply', (filepath) => {
       console.log(filepath);
       if (filepath === '') {
+        this.setState({failureCount: this.state.failureCount + 1});
+        if (this.state.failureCount == 3) {
+          return;
+        }
         // 空だったら画像をリクエストして保存
         this.dlFile();
       } else {
-        this.setState({imgSrc: filepath});
+        this.setState({imgSrc: filepath, failureCount: 0});
       }
     });
   }
